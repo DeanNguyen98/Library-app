@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="header-ctn">
+
+        <div class="container">
+            <h1>My library</h1>
+        </div>
+
+        
+
+    </div>
+
+    <div class="main-ctn">
+
+        <button> + Add a new book</button>
+
+        <div class="card-ctn">
+
+            <div class="card">
+                <p id="Title">Title</p>
+                <p id="Author">Author</p>
+                <p id="Pages">Author</p>
+                <button id="status">Read</button>
+                <button class="close-button">✖</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <p>Copyright DeanNguyen
+            <a href="https://github.com/DeanNguyen98">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0Zm2 4a2 2 0 1 0-2.95 1.76 1.87 1.87 0 0 0-.32.24H3.75a.75.75 0 0 0 0 1.5h2.363l-.607 5.67a.75.75 0 1 0 1.49.16l.25-2.33h1.508l.25 2.33a.75.75 0 0 0 1.492-.16L9.888 7.5h2.362a.75.75 0 0 0 0-1.5H9.27a1.98 1.98 0 0 0-.32-.24A2 2 0 0 0 10 4Z"></path></svg>
+            </a>
+        </p>
+        </div>
+
+    <dialog id="addBook-modal">
+        <form>
+            <input class="modal-input" type="text" id="modal-title" name="modal-title" placeholder="Title"> 
+            <input class="modal-input" type="text" id="modal-author" name="modal-author" placeholder="Author"> 
+            <input class="modal-input" type="text" id="modal-pages" name="modal-pages" placeholder="Number of Pages"> 
+            <select>
+                <option value="default">Read</option>
+                <option>Not Read</option>
+            </select>
+            <div>
+                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button id="AddBtn" value="default">Add Book</button>
+            </div>
+        </form>
+
+    </dialog>
+    
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
