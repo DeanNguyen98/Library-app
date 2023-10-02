@@ -59,45 +59,53 @@ function createbookcard (book) {
     return card;
 }
 
-addmodal.addEventListener("close", () => {
-
-    const newbook = new Book (
-        addtitle.value,
-        addauthor.value,
-        addpages.value,
-        addread.checked
-    )
-
-    myLibrary.push(newbook);
-    console.log(myLibrary);
-
-    const cardcontainer = document.querySelector(".card-ctn");
-    cardcontainer.innerHTML = "";
-
-    myLibrary.forEach((book) => {
-        const card = createbookcard(book);
-        cardcontainer.appendChild(card);
-        
-        
-        const closeButton = card.querySelector(".close-button");
-        
-        
-        closeButton.addEventListener("click" , () => {
-            const bookindex = myLibrary.indexOf(book);
-            myLibrary.splice(bookindex, 1);
-            cardcontainer.removeChild(card);
-        });
-    });
-
-
-})
-
 addbtn.addEventListener("click", (event) => {
     event.preventDefault();
+    addmodal.returnValue = "Add book";
+    if (formvalidation()) {
+        const newbook = new Book (
+            addtitle.value,
+            addauthor.value,
+            addpages.value,
+            addread.checked
+        )
+        
+        const existingbook = myLibrary.find(book => book.title == newbook.title && book.author == newbook.author && book.pages == newbook.pages);
+        if (!existingbook) {
+
+            myLibrary.push(newbook);
+            console.log(myLibrary);
+        
+            const cardcontainer = document.querySelector(".card-ctn");
+            cardcontainer.innerHTML = "";
+        
+            myLibrary.forEach((book) => {
+                const card = createbookcard(book);
+                cardcontainer.appendChild(card);
+                
+                
+                const closeButton = card.querySelector(".close-button");
+                
+                
+                closeButton.addEventListener("click" , () => {
+                    const bookindex = myLibrary.indexOf(book);
+                    myLibrary.splice(bookindex, 1);
+                    cardcontainer.removeChild(card);
+                });
+            });
+            addmodal.close();
+        } else {
+
+            alert('A book with the same name already exist in your library');
+        }
+    }
+
+})
+function formvalidation () {
     const form = document.querySelector("form");
     if (form.checkValidity()) {
-        form.submit();
-      } else {
+        return form.checkValidity;
+    } else {
         form.reportValidity();
-      }
-    });
+    }
+}
