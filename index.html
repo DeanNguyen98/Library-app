@@ -23,17 +23,10 @@
 
     <div class="main-ctn">
 
-        <button> + Add a new book</button>
+        <button id="AddbookBtn" type="button"> + Add a new book</button>
 
         <div class="card-ctn">
 
-            <div class="card">
-                <p id="Title">Title</p>
-                <p id="Author">Author</p>
-                <p id="Pages">Author</p>
-                <button id="status">Read</button>
-                <button class="close-button">✖</button>
-            </div>
 
         </div>
 
@@ -48,16 +41,15 @@
         </div>
 
     <dialog id="addBook-modal">
-        <form>
-            <input class="modal-input" type="text" id="modal-title" name="modal-title" placeholder="Title"> 
-            <input class="modal-input" type="text" id="modal-author" name="modal-author" placeholder="Author"> 
-            <input class="modal-input" type="text" id="modal-pages" name="modal-pages" placeholder="Number of Pages"> 
-            <select>
-                <option value="default">Read</option>
-                <option>Not Read</option>
+        <form method="dialog">
+            <input class="modal-input" type="text" id="modal-title" name="modal-title" placeholder="Title" required> 
+            <input class="modal-input" type="text" id="modal-author" name="modal-author" placeholder="Author" required> 
+            <input class="modal-input" type="number" id="modal-pages" name="modal-pages" placeholder="Number of Pages" required> 
+            <label for="modal-read">Have you finished it?</label>
+            <input class="modal-input" type="checkbox" id="modal-read">
+                
             </select>
             <div>
-                <button value="cancel" formmethod="dialog">Cancel</button>
                 <button id="AddBtn" value="default">Add Book</button>
             </div>
         </form>
@@ -67,6 +59,6 @@
 
 
 
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
 </body>
 </html>
